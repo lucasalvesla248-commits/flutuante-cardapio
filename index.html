@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#46362a">
+  <meta name="description" content="Cardápio digital do Flutuante Restaurante: pratos, bebidas, preços e descrições do menu enviado pela casa.">
+  <title>Flutuante Restaurante — Cardápio</title>
+  <link rel="icon" href="assets/brand/logo.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="header-inner shell">
+      <a class="brand" href="#inicio" aria-label="Flutuante Restaurante — início">
+        <img src="assets/brand/logo.png" alt="Flutuante Restaurante, 1963–2019">
+      </a>
+      <a class="contact-link" href="https://www.instagram.com/flutuanterestaurante/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram do Flutuante Restaurante">
+        <span class="contact-icon" aria-hidden="true">◎</span>
+        <span><strong>Fale com a casa</strong><small>@flutuanterestaurante</small></span>
+        <span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="cardapio" class="shell">
+    <section class="menu-section" aria-label="Cardápio do Flutuante Restaurante">
+      <label class="search-box" for="search-input">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Buscar prato ou bebida…" autocomplete="off" aria-label="Buscar no cardápio">
+        <span class="search-shortcut" aria-hidden="true">Ctrl K</span>
+      </label>
+      <nav class="category-filters" id="category-filters" aria-label="Filtrar por categoria"></nav>
+      <details class="signal-legend">
+        <summary>Entenda as sinalizações do cardápio</summary>
+        <div class="signal-legend-items" aria-label="Legenda das sinalizações">
+          <span class="signal-pill signal-ovolacto"><span class="signal-dot" aria-hidden="true"></span>Ovolactovegetariano</span>
+          <span class="signal-pill signal-sem-lactose"><span class="signal-dot" aria-hidden="true"></span>Sem lactose</span>
+          <span class="signal-pill signal-contem-lactose"><span class="signal-dot" aria-hidden="true"></span>Contém lactose</span>
+          <span class="signal-pill signal-frutos-do-mar"><span class="signal-dot" aria-hidden="true"></span>Contém frutos do mar</span>
+        </div>
+      </details>
+      <div class="results-bar">
+        <p id="result-count" aria-live="polite">Carregando cardápio…</p>
+        <span class="scroll-hint">Deslize para ver os cards <span aria-hidden="true">→</span></span>
+      </div>
+      <div class="product-grid" id="product-grid" role="region" aria-label="Produtos — deslize horizontalmente para ver mais" tabindex="0" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-mark" aria-hidden="true">⌕</span>
+        <h2>Nenhum item encontrado</h2>
+        <p>Tente outro nome ou selecione uma categoria diferente.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner shell">
+      <div class="footer-brand">Flutuante Restaurante <span>· Floriano, PI</span></div>
+      <p class="footer-note">Preços, descrições e sinalizações conforme o PDF enviado (maio de 2026). Para alergias ou restrições específicas, confirme o preparo e a disponibilidade diretamente com a casa.</p>
+      <a href="https://www.instagram.com/flutuanterestaurante/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" aria-label="Fechar detalhes">×</button>
+    <div class="dialog-art" aria-hidden="true">
+      <span>FLUTUANTE RESTAURANTE</span><b>F</b><small>1963 · 2019</small>
+    </div>
+    <div class="dialog-content">
+      <p class="dialog-category" id="dialog-category"></p>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-description" id="dialog-description"></p>
+      <div class="dialog-signals" id="dialog-signals" hidden></div>
+      <div class="dialog-bottom">
+        <strong id="dialog-price"></strong>
+        <a class="button button-order" id="dialog-contact" href="https://www.instagram.com/flutuanterestaurante/" target="_blank" rel="noopener noreferrer">Falar com a casa <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="dialog-note">Confirme disponibilidade e preço atual diretamente com o restaurante.</p>
+    </div>
+  </dialog>
+</body>
+</html>
